@@ -14,16 +14,22 @@ You have to use the following commands in the <iomanip> header file
 
   ```c++
 #include <iostream>
+#include <iomanip>
 using namespace std;
 int main() {
    float marks[] = {78.4, 90.6, 45.9, 72.2, 54.4};
    char names[][20] = {"Ajith", "Wimal", "Kanthi", "Suranji", "Kushmitha"};
    cout << "No" << "Name" << "Marks" << endl;
+   cout << setw(5) << "No" << setw(15) << "Name" << setw(10) << "Marks"<< endl;
    for (int r = 0; r < 5; r++) {
        cout <<  r+1 
             <<  names[r]
             << marks[r] << endl;
+       cout << setw(5) << r+1
+            << setw(15)<< names[r]
+            << setw(10)<< setprecision(4)<< marks[r]<< endl;
    }
+  return 0;
 }
 ```
 ```setw(), setprecision(), setiosflags(ios::fixed)```
@@ -81,6 +87,10 @@ int main() {
     
     return 0;
 }
+int volume(int height, int width, int length)
+{
+  return height*width*length;
+}
 
 // Implement the Volume() function here
 ```
@@ -109,11 +119,11 @@ struct structname {
 #include <iostream>
 
 using namespace std;
+struct Box
+{
+int height,width,length;
+}box1,box2;
 int volume(int height, int width, int length);
-
-// 1. Define a structure called Box
-// have the integer data types Height, Width, Length
-
 // Do not change the main function
 int main() {
     // 2. Create a variable called box1 of the Box structure type
@@ -121,30 +131,43 @@ int main() {
     // 3. Create a variable called box2 of the Box structure type
     
     // int box2Height, box2Width, box2Length;
+    int box1Height, box1Width, box1Length;
+    int box2Height, box2Width, box2Length;
     int totalVolume;
     
     // 4. Input the height, width, lenght of box1 and box2
     cout << "Enter Box 1 Height : ";
     cin >> Height of Box 1;
+    cin >> box1Height;
     cout << "Enter Box 1 Width : ";
     cin >> Width of Box 1;
+    cin >> box1Width;
     cout << "Enter Box 1 Length : ";
     cin >> Length of Box 1;
+    cin >> box1Length;
     
     cout << "Enter Box 2 Height : ";
     cin >> Height of Box 2;
+    cin >> box2Height;
     cout << "Enter Box 2 Width : ";
     cin >> Width of Box 2;
+    cin >> box2Width;
     cout << "Enter Box 2 Length : ";
     cin >> Length of Box 2;
+    cin >> box2Length;
     
     // 5. Replace the coding below to pass the Box type structure
     totalVolume = volume( , , )
              + volume( , , );
+    totalvolume = volume(box1Height, box1Width, box1Length)+ volume(box2Height, box2Width, box2Length);
     
     cout << "Volume of Box is " << totalVolume << endl;
     
     return 0;
+}
+int volume(int height, int width, int length)
+{
+  return height * width * length; 
 }
 
 // Implement the functions here
@@ -174,21 +197,21 @@ using namespace std;
 
 void print(int len, int wth);
 void input(int len, int wth);
+void intput(int &len, int &wth);
 
 // Do not change the main() function
 int main() {
-   int length = 10, width = 5;
-   input(length, width);
-   print(length, width);
-   return 0;
+  // Implement the Input Function here
+ void input(int &len, int &wth)
+ {
+   cout << "Enter the length : " ;
+   cin >> len;
+   cout << "Enter the width : " ;
+   cin >> wth;
+ }
+  return 0;
+    
 }
-
-// Do not change the print() function
-void print(int len, int wth) {
-   cout << "Length : " << len 
-        << ", Width  : " << wth << endl;
-}
-
-// Implement the Input Function here
+ 
 ```
 
